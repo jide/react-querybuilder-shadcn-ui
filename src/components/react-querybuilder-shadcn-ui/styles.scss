@@ -1,7 +1,8 @@
 @import 'react-querybuilder/dist/query-builder-layout.scss';
 
-// $rqb-spacing: 5.5rem !default;
-// $rqb-border-width: 10px !default;
+.dark .queryBuilder {
+  color-scheme: dark;
+}
 
 .queryBuilder {
   .ruleGroup-addGroup {
@@ -21,5 +22,20 @@
   }
   .ruleGroup .rule .rule-value:has(.rule-value-list-item) {
     gap: 0;
+  }
+  &.queryBuilder-branches {
+    .rule,
+    .ruleGroup .ruleGroup {
+      &::before,
+      &::after {
+        border-color: hsl(var(--input));
+      }
+    }
+  
+    .betweenRules {
+      &::before {
+        border-color: hsl(var(--input));
+      }
+    }
   }
 }

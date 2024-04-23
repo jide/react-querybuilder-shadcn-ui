@@ -2,7 +2,9 @@ import { QueryBuilder } from "react-querybuilder";
 import { QueryBuilderDnD } from "@react-querybuilder/dnd";
 import * as ReactDnD from "react-dnd";
 import * as ReactDndHtml5Backend from "react-dnd-html5-backend";
+import { ThemeProvider } from "@/components/theme-provider";
 import { QueryBuilderShadcnUi } from "@/components/react-querybuilder-shadcn-ui";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const values = [
   { name: "option1", label: "Option 1" },
@@ -46,7 +48,7 @@ export const defaultQuery = {
     { field: "switch", operator: "=", value: true },
     { field: "radio", operator: "=", value: "option2" },
     { field: "textarea", operator: "=", value: "" },
-    { field: "multiselect", operator: "in", value: "option1,option2" },
+    { field: "multiselect", operator: "in", value: ["option1", "option2"] },
     { field: "date", operator: "=", value: "" },
     { field: "datetime-local", operator: "=", value: "" },
     { field: "time", operator: "=", value: "" },
@@ -59,17 +61,22 @@ export const NullComponent = () => null;
 
 export default function App() {
   return (
-    <div className="m-12">
-      <QueryBuilderShadcnUi>
-        <QueryBuilderDnD dnd={{ ...ReactDnD, ...ReactDndHtml5Backend }}>
-          <QueryBuilder
-            controlClassnames={{ queryBuilder: "queryBuilder-branches" }}
-            fields={fields}
-            showNotToggle
-            defaultQuery={defaultQuery}
-          />
-        </QueryBuilderDnD>
-      </QueryBuilderShadcnUi>
-    </div>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <div className="m-12 space-y-8">
+        <ModeToggle />
+        <div>
+          <QueryBuilderShadcnUi>
+            <QueryBuilderDnD dnd={{ ...ReactDnD, ...ReactDndHtml5Backend }}>
+              <QueryBuilder
+                controlClassnames={{ queryBuilder: "queryBuilder-branches" }}
+                fields={fields}
+                showNotToggle
+                defaultQuery={defaultQuery}
+              />
+            </QueryBuilderDnD>
+          </QueryBuilderShadcnUi>
+        </div>
+      </div>
+    </ThemeProvider>
   );
 }
