@@ -93,7 +93,11 @@ export const ShadcnUiValueEditor = (allProps: ShadcnUiValueEditorProps) => {
       );
     });
     return (
-      <span data-testid={testID} className={className} title={title}>
+      <span
+        data-testid={testID}
+        className={cn("flex space-x-2", className)}
+        title={title}
+      >
         {editors[0]}
         {separator}
         {editors[1]}

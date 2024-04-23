@@ -19,4 +19,7 @@
       margin-left: auto !important;
     }
   }
+  .ruleGroup .rule .rule-value:has(.rule-value-list-item) {
+    gap: 0;
+  }
 }
