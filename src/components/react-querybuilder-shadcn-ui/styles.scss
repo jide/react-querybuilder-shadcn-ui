@@ -1,0 +1,22 @@
+@import 'react-querybuilder/dist/query-builder-layout.scss';
+
+// $rqb-spacing: 5.5rem !default;
+// $rqb-border-width: 10px !default;
+
+.queryBuilder {
+  .ruleGroup-addGroup {
+    & + button.ruleGroup-cloneGroup,
+    & + button.ruleGroup-lock,
+    & + button.ruleGroup-remove {
+      margin-left: auto !important;
+    }
+  }
+  .rule-operators,
+  .rule-value {
+    & + button.rule-cloneRule,
+    & + button.rule-lock,
+    & + button.rule-remove {
+      margin-left: auto !important;
+    }
+  }
+}
