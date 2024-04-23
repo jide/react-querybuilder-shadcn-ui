@@ -1,8 +1,40 @@
-# React + Vite
+## @react-querybuilder/shadcn-ui
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![react-querybuilder-shadcn-ui](./react-querybuilder-shadcn-ui.png)
 
-Currently, two official plugins are available:
+Unofficial [react-querybuilder](https://npmjs.com/package/react-querybuilder) components for [shadcn/ui](https://ui.shadcn.com).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+
+Copy and paste the [src/components/react-querybuilder-shadcn-ui](https://github.com/jide/react-querybuilder-shadcn-ui/tree/main/src/components/react-querybuilder-shadcn-ui) in your project.
+
+## Usage
+
+To render shadcn-ui-compatible components in the query builder, wrap the `<QueryBuilder />` element in `<QueryBuilderShadcnUi />`.
+
+```tsx
+import { QueryBuilderShadcnUi } from "@/components/react-querybuilder-shadcn-ui";
+import { QueryBuilder, RuleGroupType } from "react-querybuilder";
+
+const fields = [
+  { name: "firstName", label: "First Name" },
+  { name: "lastName", label: "Last Name" },
+];
+
+const App = () => {
+  const [query, setQuery] = useState<RuleGroupType>({
+    combinator: "and",
+    rules: [],
+  });
+
+  return (
+    <QueryBuilderShadcnUi>
+      <QueryBuilder fields={fields} query={query} onQueryChange={setQuery} />
+    </QueryBuilderShadcnUi>
+  );
+};
+```
+
+## Notes
+
+- Some additional styling may be necessary, see [src/components/react-querybuilder-shadcn-ui/styles.scss](https://github.com/jide/react-querybuilder-shadcn-ui/tree/main/src/components/react-querybuilder-shadcn-ui/styles.scss)
