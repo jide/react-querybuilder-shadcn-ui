@@ -13,11 +13,11 @@ import {
 } from "react-querybuilder";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type ShadcnUiValueEditorrProps = ValueEditorProps & {
+export type ShadcnUiValueEditorProps = ValueEditorProps & {
   extraProps?: Record<string, any>;
 };
 
-export const ShadcnUiValueEditor = (allProps: ShadcnUiValueEditorrProps) => {
+export const ShadcnUiValueEditor = (allProps: ShadcnUiValueEditorProps) => {
   const {
     fieldData,
     operator,
@@ -150,7 +150,7 @@ export const ShadcnUiValueEditor = (allProps: ShadcnUiValueEditorrProps) => {
           checked={!!value}
           title={title}
           disabled={disabled}
-          onChange={(e) => handleOnChange(e.target.checked)}
+          onCheckedChange={handleOnChange}
           {...extraProps}
         />
       );
@@ -158,10 +158,11 @@ export const ShadcnUiValueEditor = (allProps: ShadcnUiValueEditorrProps) => {
     case "checkbox":
       return (
         <Checkbox
+          id={props.rule.id}
           className={className}
           title={title}
           disabled={disabled}
-          onChange={(e) => handleOnChange(e.target.checked)}
+          onCheckedChange={handleOnChange}
           checked={!!value}
           {...extraProps}
         />
@@ -170,10 +171,10 @@ export const ShadcnUiValueEditor = (allProps: ShadcnUiValueEditorrProps) => {
     case "radio":
       return (
         <RadioGroup
-          className={className}
+          className={cn("flex space-x-2", className)}
           title={title}
           value={value}
-          onChange={handleOnChange}
+          onValueChange={handleOnChange}
           disabled={disabled}
           {...extraProps}
         >

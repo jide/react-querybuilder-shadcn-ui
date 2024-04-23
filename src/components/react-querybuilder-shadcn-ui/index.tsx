@@ -18,6 +18,8 @@ import { ShadcnUiActionElement } from "./ShadcnUiActionElement";
 import { ShadcnUiActionElementIcon } from "./ShadcnUiActionElementIcon";
 import { ShadcnUiValueEditor } from "./ShadcnUiValueEditor";
 import { ShadcnUiValueSelector } from "./ShadcnUiValueSelector";
+import { ShadcnUiNotToggle } from "./ShadcnUiNotToggle";
+import { ShadcnUiDragHandle } from "./ShadcnUiDragHandle";
 
 import "./styles.scss";
 
@@ -34,6 +36,8 @@ export const shadcnUiControlElements = {
   removeRuleAction: ShadcnUiActionElementIcon,
   valueSelector: ShadcnUiValueSelector,
   valueEditor: ShadcnUiValueEditor,
+  notToggle: ShadcnUiNotToggle,
+  dragHandle: ShadcnUiDragHandle,
 } satisfies Partial<Controls<FullField, string>>;
 
 export const shadcnUiTranslations = {

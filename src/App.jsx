@@ -1,21 +1,8 @@
 import { QueryBuilder } from "react-querybuilder";
+import { QueryBuilderDnD } from "@react-querybuilder/dnd";
+import * as ReactDnD from "react-dnd";
+import * as ReactDndHtml5Backend from "react-dnd-html5-backend";
 import { QueryBuilderShadcnUi } from "@/components/react-querybuilder-shadcn-ui";
-
-// const fields = [
-//   {
-//     name: "score",
-//     label: "score",
-//   },
-//   {
-//     name: "status",
-//     label: "status",
-//     values: [
-//       { value: "failed", label: "Failed" },
-//       { value: "success", label: "Success" },
-//     ],
-//     valueEditorType: "select",
-//   },
-// ];
 
 const values = [
   { name: "option1", label: "Option 1" },
@@ -56,6 +43,7 @@ export const defaultQuery = {
     { field: "text", operator: "=", value: "" },
     { field: "select", operator: "=", value: "option2" },
     { field: "checkbox", operator: "=", value: true },
+    { field: "switch", operator: "=", value: true },
     { field: "radio", operator: "=", value: "option2" },
     { field: "textarea", operator: "=", value: "" },
     { field: "multiselect", operator: "in", value: "option1,option2" },
@@ -73,10 +61,13 @@ export default function App() {
   return (
     <div className="m-12">
       <QueryBuilderShadcnUi>
-        <QueryBuilder
-          controlClassnames={{ queryBuilder: "queryBuilder-branches" }}
-          fields={fields}
-        />
+        <QueryBuilderDnD dnd={{ ...ReactDnD, ...ReactDndHtml5Backend }}>
+          <QueryBuilder
+            controlClassnames={{ queryBuilder: "queryBuilder-branches" }}
+            fields={fields}
+            showNotToggle
+          />
+        </QueryBuilderDnD>
       </QueryBuilderShadcnUi>
     </div>
   );

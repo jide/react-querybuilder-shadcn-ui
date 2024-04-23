@@ -1,11 +1,16 @@
+import type { ComponentPropsWithoutRef } from "react";
 import {
   Select,
   SelectContent,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import type { VersatileSelectorProps } from "react-querybuilder";
 import { MultiSelect } from "./multiselect";
 import { toSelectOptions } from "./utils";
+
+export type ShadcnUiValueSelectorProps = VersatileSelectorProps &
+  ComponentPropsWithoutRef<typeof Select>;
 
 export const ShadcnUiValueSelector = ({
   className,
@@ -29,8 +34,7 @@ export const ShadcnUiValueSelector = ({
   listsAsArrays: _listsAsArrays,
   schema: _schema,
   ...extraProps
-}) => {
-  console.log(_listsAsArrays, toSelectOptions(options));
+}: ShadcnUiValueSelectorProps) => {
   return _multiple ? (
     <MultiSelect
       className={className}

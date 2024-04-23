@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { isOptionGroupArray } from "react-querybuilder";
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
+import type { OptionList } from "react-querybuilder";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,13 +14,19 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-type Checked = DropdownMenuCheckboxItemProps["checked"];
+export type MultiSelectProps = {
+  className?: string;
+  options?: OptionList;
+  value: string[];
+  onValueChange: (value: string[]) => void;
+};
 
-export function MultiSelect({ className, options = [], value, onValueChange }) {
-  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true);
-  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false);
-  const [showPanel, setShowPanel] = React.useState<Checked>(false);
-
+export function MultiSelect({
+  className,
+  options = [],
+  value,
+  onValueChange,
+}: MultiSelectProps) {
   const toDropdownOptions = (list: OptionList) =>
     isOptionGroupArray(list)
       ? list.map((og) => (
