@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export type MultiSelectProps = {
-  className?: string;
   options?: OptionList;
   value: string[];
   onValueChange: (value: string[]) => void;
@@ -74,7 +73,7 @@ export function MultiSelect({
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
-          className={cn("space-x-1", value.length > 0 && "px-1")}
+          className={cn("flex space-x-2", value.length > 0 && "px-1")}
         >
           {[...value].slice(0, 2).map((it) => (
             <div key={it} className="bg-accent px-3 py-1 rounded-sm text-sm">

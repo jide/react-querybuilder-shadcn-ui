@@ -66,6 +66,7 @@ export default function App() {
             controlClassnames={{ queryBuilder: "queryBuilder-branches" }}
             fields={fields}
             showNotToggle
+            defaultQuery={defaultQuery}
           />
         </QueryBuilderDnD>
       </QueryBuilderShadcnUi>

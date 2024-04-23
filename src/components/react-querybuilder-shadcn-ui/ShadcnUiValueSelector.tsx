@@ -37,7 +37,7 @@ export const ShadcnUiValueSelector = ({
   return _multiple ? (
     <MultiSelect
       options={options}
-      value={value ? [value] : []} // Fix: Ensure value is always an array
+      value={value}
       onValueChange={handleOnChange}
     />
   ) : (
