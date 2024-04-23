@@ -10,14 +10,18 @@ export const ShadcnUiNotToggle = ({
   handleOnChange,
   checked,
   disabled,
+  label,
 }: ChakraNotToggleProps) => {
   return (
-    <Switch
-      className={className}
-      disabled={disabled}
-      checked={checked}
-      onCheckedChange={handleOnChange}
-    />
+    <div className="flex space-x-2 text-sm items-center">
+      <Switch
+        className={className}
+        disabled={disabled}
+        checked={checked}
+        onCheckedChange={handleOnChange}
+      />
+      <span>{label}</span>
+    </div>
   );
 };
 

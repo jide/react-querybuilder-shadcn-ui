@@ -22,7 +22,6 @@ export type MultiSelectProps = {
 };
 
 export function MultiSelect({
-  className,
   options = [],
   value,
   onValueChange,
@@ -37,11 +36,11 @@ export function MultiSelect({
               <DropdownMenuCheckboxItem
                 key={opt.name}
                 disabled={!!opt.disabled}
-                checked={value.includes(opt.name)}
+                checked={value.includes(opt.name ?? "")}
                 onCheckedChange={(checked) => {
                   onValueChange(
                     checked
-                      ? [...value, opt.name]
+                      ? [...value, opt.name ?? ""]
                       : value.filter((v) => v !== opt.name)
                   );
                 }}
@@ -71,7 +70,7 @@ export function MultiSelect({
       : null;
 
   return (
-    <DropdownMenu className={className}>
+    <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"

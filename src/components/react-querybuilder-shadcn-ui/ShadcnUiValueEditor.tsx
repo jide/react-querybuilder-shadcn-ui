@@ -171,7 +171,7 @@ export const ShadcnUiValueEditor = (allProps: ShadcnUiValueEditorProps) => {
     case "radio":
       return (
         <RadioGroup
-          className={cn("flex space-x-2", className)}
+          className={cn("flex space-x-2 items-center", className)}
           title={title}
           value={value}
           onValueChange={handleOnChange}

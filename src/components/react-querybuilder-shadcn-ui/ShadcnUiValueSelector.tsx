@@ -13,7 +13,6 @@ export type ShadcnUiValueSelectorProps = VersatileSelectorProps &
   ComponentPropsWithoutRef<typeof Select>;
 
 export const ShadcnUiValueSelector = ({
-  className,
   handleOnChange,
   options,
   value,
@@ -37,14 +36,12 @@ export const ShadcnUiValueSelector = ({
 }: ShadcnUiValueSelectorProps) => {
   return _multiple ? (
     <MultiSelect
-      className={className}
       options={options}
-      value={value}
+      value={value ? [value] : []} // Fix: Ensure value is always an array
       onValueChange={handleOnChange}
     />
   ) : (
     <Select
-      className={className}
       value={value}
       disabled={disabled}
       onValueChange={handleOnChange}
